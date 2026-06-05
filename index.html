@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBSE Got Scammed — And So Did Your Marks</title>
+<meta name="description" content="How a company linked to 23 student suicides in Telangana rebranded, rewrote the rules, and won India's largest school examination contract — affecting 17 lakh students.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f7f4;
+    --bg-alt: #f2efe9;
+    --bg-card: #ffffff;
+    --text-primary: #1a1410;
+    --text-secondary: #4a4036;
+    --text-muted: #786e62;
+    --accent: #8b1a1a;
+    --accent-light: #b92626;
+    --accent-warm: #c0392b;
+    --accent-pale: #f9eded;
+    --border: #ddd8d0;
+    --border-light: #ece8e1;
+    --shadow-sm: 0 1px 3px rgba(26,20,16,0.08);
+    --shadow-md: 0 4px 16px rgba(26,20,16,0.10);
+    --shadow-lg: 0 12px 40px rgba(26,20,16,0.12);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'Instrument Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --toc-width: 220px;
+    --content-width: 720px;
+    --max-width: 1200px;
+  }
+
+  [data-theme="dark"] {
+    --bg: #111009;
+    --bg-alt: #1a1710;
+    --bg-card: #1f1c14;
+    --text-primary: #f0ebe2;
+    --text-secondary: #c8bfb0;
+    --text-muted: #8a8070;
+    --accent: #e05252;
+    --accent-light: #f07070;
+    --accent-warm: #d94f4f;
+    --accent-pale: #2a1515;
+    --border: #302c22;
+    --border-light: #252018;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; font-size: 16px; }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.75;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--accent);
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
+  /* ===== TOP NAV ===== */
+  .top-nav {
+    position: fixed;
+    top: 3px; left: 0; right: 0;
+    height: 52px;
+    background: rgba(249,247,244,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 999;
+    transition: background 0.3s ease;
+  }
+
+  [data-theme="dark"] .top-nav {
+    background: rgba(17,16,9,0.92);
+  }
+
+  .nav-brand {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    color: var(--accent);
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-btn:hover {
+    background: var(--accent-pale);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding-top: 55px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 50%, transparent 100%);
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 32px 56px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-hed {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.12;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero-hed em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-dek {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 680px;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-meta-item {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hero-meta-item strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .hero-meta-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  .layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: var(--toc-width) 1fr;
+    grid-template-areas: "toc content";
+    gap: 0 56px;
+    align-items: start;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc-wrapper {
+    grid-area: toc;
+    position: sticky;
+    top: 80px;
+    padding: 32px 0;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .toc-wrapper::-webkit-scrollbar { width: 3px; }
+  .toc-wrapper::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .toc-header {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .toc-nav {
+    list-style: none;
+  }
+
+  .toc-nav li {
+    margin-bottom: 2px;
+  }
+
+  .toc-nav a {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 5px 10px 5px 12px;
+    border-left: 2px solid transparent;
+    border-radius: 0 3px 3px 0;
+    transition: all 0.2s ease;
+  }
+
+  .toc-nav a:hover {
+    color: var(--text-primary);
+    border-left-color: var(--border);
+    background: var(--bg-alt);
+  }
+
+  .toc-nav a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--accent-pale);
+    font-weight: 500;
+  }
+
+  /* ===== CONTENT ===== */
+  .content {
+    grid-area: content;
+    padding: 32px 0 80px;
+    max-width: var(--content-width);
+  }
+
+  /* ===== SUMMARY BOX ===== */
+  .summary-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    padding: 32px 36px;
+    margin-bottom: 56px;
+    border-radius: 0 0 4px 4px;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .summary-box.visible { opacity: 1; transform: translateY(0); }
+
+  .summary-box-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .summary-box-header .icon {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .summary-box-header .icon svg {
+    fill: white;
+    width: 11px;
+    height: 11px;
+  }
+
+  .summary-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .summary-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .summary-box ul li {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .summary-box ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .summary-box ul li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ===== ARTICLE BODY ===== */
+  .article-section {
+    margin-bottom: 64px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .article-section.visible { opacity: 1; transform: translateY(0); }
+
+  .section-anchor {
+    position: relative;
+    top: -80px;
+    visibility: hidden;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-number {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .section-hed {
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.22;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .section-hed .copy-link {
+    opacity: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 5px;
+    flex-shrink: 0;
+    transition: opacity 0.2s, color 0.2s;
+    border-radius: 3px;
+  }
+
+  .section-hed:hover .copy-link { opacity: 1; }
+  .section-hed .copy-link:hover { color: var(--accent); background: var(--accent-pale); }
+
+  .section-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 16px 0 0;
+    border: none;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.82;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+
+  .content p:first-of-type {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+
+  .content p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ===== PULL QUOTE ===== */
+  .pull-quote {
+    margin: 40px 0;
+    padding: 28px 32px;
+    border-left: 4px solid var(--accent);
+    background: var(--bg-alt);
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -8px;
+    left: 28px;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    color: var(--accent);
+    opacity: 0.25;
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--text-primary) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .pull-quote cite {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-style: normal;
+  }
+
+  /* ===== FINDING CARDS ===== */
+  .finding-card {
+    background: var(--accent-pale);
+    border: 1px solid rgba(139,26,26,0.15);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    margin: 28px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  [data-theme="dark"] .finding-card {
+    border-color: rgba(224,82,82,0.2);
+    border-left-color: var(--accent);
+  }
+
+  .finding-card-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .finding-card p {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .finding-card p strong {
+    color: var(--text-primary);
+  }
+
+  /* ===== WARNING BOX ===== */
+  .warning-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 3px solid #d97706;
+    padding: 22px 26px;
+    margin: 32px 0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .warning-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d97706;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .warning-label::before { content: '⚠'; font-size: 12px; }
+
+  .warning-box p {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ===== DATA TABLE ===== */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 36px 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-caption {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 12px 20px;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: 13px;
+  }
+
+  .data-table thead th {
+    background: var(--bg-alt);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    padding: 13px 18px;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s ease;
+  }
+
+  .data-table tbody tr:hover { background: var(--bg-alt); }
+
+  .data-table tbody td {
+    padding: 14px 18px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    vertical-align: top;
+  }
+
+  .data-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .data-table .badge {
+    display: inline-block;
+    background: var(--accent-pale);
+    color: var(--accent);
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(139,26,26,0.15);
+  }
+
+  [data-theme="dark"] .data-table .badge {
+    background: rgba(224,82,82,0.12);
+    border-color: rgba(224,82,82,0.2);
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-left: 8px;
+    position: relative;
+  }
+
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-dot.red { background: var(--accent); }
+
+  .timeline-body {
+    flex: 1;
+    padding-bottom: 8px;
+  }
+
+  .timeline-date {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .timeline-desc {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* ===== PATTERN LIST ===== */
+  .pattern-list {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pattern-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 18px 22px;
+    border-radius: 4px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .pattern-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(3px);
+  }
+
+  .pattern-num {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-pale);
+    border: 1px solid rgba(139,26,26,0.15);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  [data-theme="dark"] .pattern-num {
+    background: rgba(224,82,82,0.12);
+    border-color: rgba(224,82,82,0.2);
+  }
+
+  .pattern-body {
+    flex: 1;
+  }
+
+  .pattern-location {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .pattern-desc {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  /* ===== TECHNICAL DETAIL BOX ===== */
+  .tech-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin: 28px 0;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tech-box-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 8px;
+  }
+
+  .tech-highlight { color: var(--accent); font-weight: 500; }
+
+  /* ===== ACCOUNTABILITY BOX ===== */
+  .accountability-box {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 22px 26px;
+    margin: 32px 0;
+    border-radius: 4px;
+  }
+
+  .accountability-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .accountability-box p {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text-secondary) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .accountability-box p:last-child { margin-bottom: 0 !important; }
+
+  /* ===== HIGHLIGHTED STAT ===== */
+  .stat-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .stat-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 20px 22px;
+    border-radius: 0 0 4px 4px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== REFERENCES ===== */
+  .references-section {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 2px solid var(--border);
+  }
+
+  .references-header {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .references-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .references-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .ref-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    flex-shrink: 0;
+    padding-top: 1px;
+    min-width: 22px;
+  }
+
+  .ref-text {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .ref-text a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139,26,26,0.3);
+    transition: border-color 0.2s, color 0.2s;
+    word-break: break-all;
+  }
+
+  .ref-text a:hover { border-bottom-color: var(--accent); }
+
+  /* ===== BACK TO TOP ===== */
+  #back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(139,26,26,0.4);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 500;
+  }
+
+  #back-to-top.visible { opacity: 1; transform: translateY(0); }
+  #back-to-top:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(139,26,26,0.45); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 80px;
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .footer p {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed;
+    bottom: 88px;
+    right: 32px;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 600;
+    pointer-events: none;
+  }
+
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+      grid-template-areas: "content";
+      padding: 0 20px;
+    }
+    .toc-wrapper { display: none; }
+    .hero-inner { padding: 48px 20px 40px; }
+    .hero-hed { font-size: clamp(1.9rem, 6vw, 2.8rem); }
+    .summary-box { padding: 24px 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .top-nav { padding: 0 16px; }
+    .hero-inner { padding: 36px 16px 32px; }
+    .stat-block { grid-template-columns: 1fr 1fr; }
+    .hero-meta { gap: 14px; }
+    .hero-meta-divider { display: none; }
+    .data-table { font-size: 12px; }
+    .data-table thead th, .data-table tbody td { padding: 10px 12px; }
+    .pull-quote { padding: 20px 18px; }
+    #back-to-top { bottom: 20px; right: 20px; }
+    .toast { right: 20px; bottom: 74px; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .top-nav, .toc-wrapper, #progress-bar, #back-to-top, .toast, .copy-link { display: none !important; }
+    body { background: white; color: black; }
+    .hero { padding-top: 0; }
+    .layout { display: block; padding: 0; }
+    .content { max-width: 100%; }
+    .article-section, .summary-box { opacity: 1; transform: none; }
+    a { color: inherit; }
+    .data-table { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
+
+<nav class="top-nav" aria-label="Site navigation">
+  <a href="#" class="nav-brand">Investigative <span>Report</span></a>
+  <div class="nav-controls">
+    <button class="nav-btn" id="dark-toggle" aria-label="Toggle dark mode">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+      Dark Mode
+    </button>
+    <button class="nav-btn" onclick="window.print()" aria-label="Print article">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print
+    </button>
+  </div>
+</nav>
+
+<header class="hero" role="banner">
+  <div class="hero-inner">
+    <div class="hero-tag">Investigative Analysis</div>
+    <h1 class="hero-hed">The Company That Caused 23 Deaths, <em>Rebranded,</em> and Won India's Largest Exam Contract</h1>
+    <p class="hero-dek">How a Hyderabad firm linked to a catastrophic 2019 result failure changed its name, systematically rewrote the tendering rules, and was awarded control of the academic futures of 17 lakh CBSE Class 12 students — with predictable consequences.</p>
+    <div class="hero-meta">
+      <span class="hero-meta-item"><strong>Investigative Analysis</strong></span>
+      <span class="hero-meta-divider" aria-hidden="true"></span>
+      <span class="hero-meta-item">June 5, 2026</span>
+      <span class="hero-meta-divider" aria-hidden="true"></span>
+      <span class="hero-meta-item">Est. 22 min read</span>
+      <span class="hero-meta-divider" aria-hidden="true"></span>
+      <span class="hero-meta-item">By <strong>Shree Kumaran</strong>, Class 12 student, 2026–27 — writing about the system I am about to be handed over to</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="layout">
+    <!-- TABLE OF CONTENTS -->
+    <aside class="toc-wrapper" aria-label="Table of contents">
+      <p class="toc-header">Contents</p>
+      <nav>
+        <ul class="toc-nav" id="toc-nav">
+          <li><a href="#section-summary" class="toc-link">Key Findings</a></li>
+          <li><a href="#section-company" class="toc-link">The Company Behind the Contract</a></li>
+          <li><a href="#section-tenders" class="toc-link">Three Tenders, One Outcome</a></li>
+          <li><a href="#section-rules" class="toc-link">Eight Rule Changes</a></li>
+          <li><a href="#section-corrigendum" class="toc-link">The Corrigendum Gambit</a></li>
+          <li><a href="#section-security" class="toc-link">An Open Front Door</a></li>
+          <li><a href="#section-scanning" class="toc-link">The Phone Camera Scandal</a></li>
+          <li><a href="#section-silencing" class="toc-link">The Silencing of Teachers</a></li>
+          <li><a href="#section-marks" class="toc-link">The Marks Integrity Question</a></li>
+          <li><a href="#section-ghost" class="toc-link">A Ghost Vendor?</a></li>
+          <li><a href="#section-pattern" class="toc-link">A Larger Pattern</a></li>
+          <li><a href="#references" class="toc-link">References</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <article class="content" aria-label="Main article">
+
+      <!-- KEY FINDINGS -->
+      <div class="summary-box" id="section-summary">
+        <div class="summary-box-header">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <span class="summary-label">Key Findings</span>
+        </div>
+        <ul>
+          <li><strong>Corporate Continuity Established:</strong> Coempt Edu Teck Private Limited (CIN U72200TG2000PTC034224) is the same legal entity as Globarena Technologies, the vendor whose software failure was directly linked to the suicides of 23 Telangana intermediate students in 2019.</li>
+          <li><strong>Three Tenders, One Winner:</strong> CBSE floated, cancelled, and re-floated the OSM contract three times between February and August 2025, progressively diluting the qualification framework until a specific vendor profile could qualify.</li>
+          <li><strong>Eight Systematic Rule Changes:</strong> A forensic textual comparison between the second and third tenders reveals eight precise alterations to the evaluation criteria, every one of which directly benefited Coempt Edu Teck.</li>
+          <li><strong>Blacklisting Power Voluntarily Surrendered:</strong> A September 2025 corrigendum stripped "Blacklisting" from the vendor penalty clause — weeks before the contract was awarded — effectively removing the government's most powerful enforcement tool.</li>
+          <li><strong>AWS Bucket Left Publicly Accessible:</strong> Independent security researcher Nisarga Adhikary, 19, documented that the Onmark platform's cloud storage was left open to the public internet, with a hardcoded master password discoverable in minified frontend JavaScript files.</li>
+          <li><strong>Marks Integrity Cannot Be Certified:</strong> An IDOR vulnerability allowed full evaluator account takeover without server-side authentication. The national pass percentage fell to 85.20%, a seven-year low, triggering 2.94 lakh re-evaluation applications.</li>
+          <li><strong>Prior Disqualification Concealed:</strong> Kannur University explicitly disqualified Coempt in 2025 after finding the firm submitted a fraudulent "clean track record" declaration, suppressing a pending criminal case in the Andhra Pradesh High Court.</li>
+          <li><strong>Top CBSE Officials Transferred:</strong> On June 2, 2026, the Union Government transferred CBSE Chairman Rahul Singh and Secretary Himanshu Gupta. A one-member probe committee under S. Radha Chauhan has been constituted.</li>
+        </ul>
+      </div>
+
+      <!-- SECTION 1: THE COMPANY -->
+      <section class="article-section" id="section-company" aria-labelledby="hed-company">
+        <span class="section-anchor" id="anchor-company" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2 class="section-hed" id="hed-company">
+            The Company Behind the Contract
+            <button class="copy-link" onclick="copySection('section-company')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The company that received India's largest school examination contract is the same company whose software failure was linked to 23 student suicides in Telangana. It simply changed its name.</p>
+
+        <p>Documentary evidence from the Ministry of Corporate Affairs establishes an unbroken corporate continuity between the entity responsible for that 2019 catastrophe and the vendor currently managing the CBSE On-Screen Marking system for the 2025-26 academic year. Corporate filings confirm that the entity operating under Corporate Identification Number U72200TG2000PTC034224 was originally incorporated on April 11, 2000. Over 26 years, this single legal entity has operated under three names: Globarena Technologies Private Limited, Globarena iTeknowledge Private Limited, and currently, Coempt Edu Teck Private Limited. Throughout these renamings, the registered address has never moved — Plot No. 8-3-224/4/C, F-28, Madhuranagar, Yousufguda, Hyderabad, Telangana, 500038.</p>
+
+        <p>Director history confirms this continuity further. Anantha Madabhushini Chary (DIN 00005042) was appointed to the board on July 3, 2000, and remains Managing Director today. CEO Suryanarayana Vuyyuri Raju (DIN 08754819) co-manages the firm alongside three other directors. The firm's paid-up capital stands at ₹20 crore against an authorized capital of ₹25 crore — a modest balance sheet for the manager of a national examination infrastructure serving 17 lakh students.</p>
+
+        <div class="pull-quote">
+          <p>Students who attended examinations were marked absent. Others received zero marks, or totals that were mathematically impossible. Twenty-three students took their own lives.</p>
+          <cite>Telangana State Expert Committee Report, April 26, 2019</cite>
+        </div>
+
+        <p>The historical record of this entity is defined by what happened in Telangana in 2019. Operating as Globarena Technologies, the company was awarded a ₹4.35 crore project to process examination results for approximately 8.7 lakh intermediate students. The deployment of their software resulted in catastrophic data corruption: over 3.8 lakh students received incorrect results. Students were marked absent despite having appeared. Others received zeros, or marks with impossible totals. The widespread collapse triggered immense public distress, and 23 students died by suicide across the state.</p>
+
+        <p>The Telangana government constituted a three-member expert committee comprising senior officials from Telangana State Technology Services, BITS Hyderabad, and IIT Hyderabad. The committee submitted its findings on April 26, 2019, documenting what it called "systemic failure, procedural collapse, and glaring negligence." The findings were damning in their specificity. Globarena Technologies had never signed a formal contract with the Telangana State Board of Intermediate Education — the entire high-stakes operation ran on nothing more than a basic work order. Critical software faults had appeared as early as October 2018, nearly six months before results were declared, yet the vendor's responses to warnings were deemed "unsatisfactory." The committee called the deployment without adequate testing "the biggest mistake in the entire process."</p>
+
+        <div class="stat-block" aria-label="Key statistics from the 2019 Telangana crisis">
+          <div class="stat-item">
+            <div class="stat-value">3.8L</div>
+            <div class="stat-label">Students received incorrect results</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">531</div>
+            <div class="stat-label">Geography students had practical marks vanish entirely</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">23</div>
+            <div class="stat-label">Students who died by suicide following the results crisis</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">0</div>
+            <div class="stat-label">Formal blacklisting proceedings initiated by Telangana</div>
+          </div>
+        </div>
+
+        <p>Technical errors were systematic and highly specific. In 531 cases, practical marks for Geography students disappeared entirely. In 496 cases, students received a printed error code "AP" where numerical marks should have appeared. Some 4,288 students in the MEC stream — Mathematics, Economics, and Commerce — had their grades erroneously truncated to single digits. The TSBIE's own electronic data processing monitoring team had been inexplicably disbanded months before results day, leaving the entire software development life cycle unmonitored by the state.</p>
+
+        <p>Despite these conclusive findings of gross negligence, the Telangana government never formally initiated blacklisting proceedings. The entity rebranded from Globarena Technologies to Coempt Edu Teck exactly six months after the crisis. This calculated corporate sanitization allowed the firm to bypass standard procurement restrictions, subsequently securing contracts with JNTU Hyderabad in 2023 and, ultimately, the national CBSE contract in 2025.</p>
+
+        <div class="finding-card">
+          <p class="finding-card-label">Legal Implication</p>
+          <p>Rule 151 of the General Financial Rules 2017 mandates the strict debarment of bidders with a documented record of poor performance — a record the TSBIE expert committee irrefutably established. The CBSE's failure to conduct basic corporate lineage tracing effectively invalidates the foundational due diligence mandated by federal procurement guidelines. The relevant question — whether the CBSE evaluation committee formally requested the 2019 TSBIE report or chose to ignore it — remains unanswered. That answer lies in the internal minutes of the CBSE tender evaluation committee.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: THE TENDERS -->
+      <section class="article-section" id="section-tenders" aria-labelledby="hed-tenders">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2 class="section-hed" id="hed-tenders">
+            Three Tenders, One Predetermined Outcome
+            <button class="copy-link" onclick="copySection('section-tenders')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The procurement process governing this contract was defined by an irregular, rapid-fire tendering cycle that ran from February to August 2025. The CBSE floated, cancelled, and re-floated the requirement three times until a specific vendor profile could navigate the evaluation criteria successfully.</p>
+
+        <p>The first tender appeared on the Central Public Procurement Portal on February 4, 2025. Shortly after its issuance, it was entirely wiped from both the Government e-Marketplace and the CPPP public archives. Government procurement mandates under GFR 2017 require a strict administrative audit trail for any such deletion — making its complete archival erasure deeply irregular. No official explanation has been provided for its disappearance.</p>
+
+        <p>The second tender (Tender ID: 2025_MHRD_858645_1) was issued on May 2, 2025. It established rigid technical specifications and stringent quality-control benchmarks. Four vendors submitted bids, including Tata Consultancy Services, Coempt Edu Teck, and Xlict Software. During the technical evaluation phase, all four bidders failed to meet the specifications. The tender was cancelled outright.</p>
+
+        <p>Here was the critical decision point. Rather than maintaining the high technical bar and seeking more capable enterprise-grade vendors, the CBSE issued a third tender (Tender ID: 2025_MHRD_875046_1) on August 28, 2025, systematically diluting the qualification framework.</p>
+
+        <div class="timeline" aria-label="Procurement timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">February 4, 2025</p>
+              <p class="timeline-title">First Tender Issued — Then Erased</p>
+              <p class="timeline-desc">Published on CPPP; subsequently wiped from both GeM and CPPP archives without explanation. No administrative trail preserved.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">May 2, 2025</p>
+              <p class="timeline-title">Second Tender (Old RfP)</p>
+              <p class="timeline-desc">Four bidders including TCS and Coempt apply. All four fail the technical evaluation. Tender cancelled.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">August 28, 2025</p>
+              <p class="timeline-title">Third Tender (New RfP) — Eight Rules Rewritten</p>
+              <p class="timeline-desc">Qualification criteria systematically diluted. TCS and Coempt qualify. Rankguru (₹117.56 Cr avg. turnover) rejected despite meeting threshold.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">September 20, 2025</p>
+              <p class="timeline-title">Corrigendum Strips Blacklisting Power</p>
+              <p class="timeline-desc">CBSE removes "Blacklisting" from the vendor penalty clause — weeks before bids close.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">November 19, 2025</p>
+              <p class="timeline-title">Commercial Bids Opened</p>
+              <p class="timeline-desc">Coempt bids ₹38.46 Cr; TCS bids ₹95.13 Cr. Coempt undercuts by nearly 60%, winning maximum financial score under QCBS methodology.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot red"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">December 5, 2025</p>
+              <p class="timeline-title">Contract Awarded to Coempt — 74 Days Before Exams</p>
+              <p class="timeline-desc">Contract finalized just 74 days before February 2026 examination commencement. Standard enterprise onboarding for secure national digital infrastructure requires six to eight months.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot red"></div>
+            <div class="timeline-body">
+              <p class="timeline-date">June 2, 2026</p>
+              <p class="timeline-title">CBSE Chairman and Secretary Transferred; Probe Ordered</p>
+              <p class="timeline-desc">Union Government transfers Chairman Rahul Singh and Secretary Himanshu Gupta. S. Radha Chauhan constituted as one-member probe committee.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>Under the Quality and Cost Based Selection method stipulated by the tender, technical scores carried a 70% weightage and financial bids 30%. By undercutting TCS by nearly 60% — bidding ₹38.46 crore against TCS's ₹95.13 crore — Coempt secured the maximum financial score. The combined scoring produced a contract award that sent 9.86 million Class 12 answer books, and the academic futures of 17 lakh students, to a company whose bid was essentially built on rented servers and borrowed credibility.</p>
+
+        <p>The timeline of this award engineered a severe operational risk. By finalising the commercial bid in late November and awarding the contract on December 5, the CBSE granted Coempt just 74 days before the commencement of board examinations in February 2026. Standard enterprise onboarding for secure digital infrastructure serving millions of users — involving architecture design, penetration testing, mock runs, and phased deployment — requires a minimum of six to eight months. The board knowingly forced a rushed deployment.</p>
+
+        <div class="accountability-box">
+          <p class="accountability-label">Accountability</p>
+          <p>Responsibility for this erratic procurement timeline lies with the CBSE leadership at the time — specifically the recently transferred Chairman Rahul Singh and Secretary Himanshu Gupta. The Department of School Education and Literacy failed to audit why a tender of this national importance was repeatedly scrapped and selectively re-issued. Central Vigilance Commission guidelines mandate that when a tender collapses because no bidder qualifies, any subsequent re-issue must not arbitrarily lower technical thresholds to accommodate inferior vendors.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3: THE EIGHT RULES -->
+      <section class="article-section" id="section-rules" aria-labelledby="hed-rules">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2 class="section-hed" id="hed-rules">
+            The Eight Rule Changes That Rebuilt the Playing Field
+            <button class="copy-link" onclick="copySection('section-rules')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>A forensic textual comparison between the cancelled second tender and the awarded third tender reveals eight precise, highly specific alterations to the evaluation criteria. Each modification diluted a quality standard. Every single one directly benefited Coempt Edu Teck.</p>
+
+        <div class="table-wrapper" role="region" aria-label="Comparison of rule changes between tender versions">
+          <div class="table-caption">Table 1 — Comparative Analysis: Old RfP vs. New RfP Clause Changes</div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th>Original Clause (Old RfP)</th>
+                <th>Revised Clause (New RfP)</th>
+                <th>Practical Consequence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Poor Performance Record</td>
+                <td>Disqualified vendors with any record of abandoning work, incomplete contractual obligations, or financial failures at any institution</td>
+                <td>Entire clause deleted</td>
+                <td><span class="badge">Coempt Benefit</span> Removed the legal barrier that would have automatically disqualified the firm for the 2019 TSBIE failure</td>
+              </tr>
+              <tr>
+                <td>Blacklisting Status</td>
+                <td>"Blacklisted earlier by the Board or debarred by any government organisation"</td>
+                <td>Changed specifically to "Currently blacklisted"</td>
+                <td><span class="badge">Coempt Benefit</span> Because the firm was not currently debarred under its new name, its historical malfeasance was legally erased</td>
+              </tr>
+              <tr>
+                <td>Turnover Threshold</td>
+                <td>₹50 Crore minimum from digital evaluation services over last three financial years</td>
+                <td>Threshold maintained at ₹50 Crore</td>
+                <td><span class="badge">Coempt Benefit</span> Coempt qualified by just 1.7% — submitting an exact three-year average of ₹50.86 Crore, scoring 2/5 vs TCS's 5/5</td>
+              </tr>
+              <tr>
+                <td>Software Maturity Certification</td>
+                <td>CMMI Level 5 mandatory</td>
+                <td>Lowered to CMMI Level 3</td>
+                <td><span class="badge">Coempt Benefit</span> Coempt only holds Level 3 certification; the change allowed a vendor with lower software engineering maturity to qualify for a national infrastructure project</td>
+              </tr>
+              <tr>
+                <td>Cooling-Off Period</td>
+                <td>Engaging former board officials within 2 years of retirement deemed a corrupt practice</td>
+                <td>Reduced to 1 year</td>
+                <td><span class="badge">Coempt Benefit</span> Permitted leveraging recent insider connections to navigate the procurement process</td>
+              </tr>
+              <tr>
+                <td>Experience Scale</td>
+                <td>Prior experience in projects serving at least 5 lakh students per project</td>
+                <td>Switched to cumulative volume of answer books; student count metric deleted</td>
+                <td><span class="badge">Coempt Benefit</span> Allowed vendor to aggregate small, fragmented university contracts instead of requiring massive state-level experience</td>
+              </tr>
+              <tr>
+                <td>Data Centre Ownership</td>
+                <td>20 marks for owning Tier 3 Data Centres; 10 for third-party. Mandatory local server insurance required</td>
+                <td>Physical ownership requirement deleted; MeitY-empaneled cloud hosting (AWS/Azure) accepted. Insurance deleted</td>
+                <td><span class="badge">Coempt Benefit</span> Eliminated TCS's massive infrastructure advantage; Coempt relies entirely on third-party AWS/Azure hosting</td>
+              </tr>
+              <tr>
+                <td>Source Code Ownership</td>
+                <td>Vendor must own complete source code of the software platform</td>
+                <td>Clause deleted; proprietary external platforms permitted</td>
+                <td><span class="badge">Coempt Benefit</span> Permitted the use of Microsoft IIS rather than proprietary owned code; Coempt relies on third-party frameworks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Each of these changes, taken individually, might be explained as a market-driven adjustment. Taken together — eight coordinated modifications, each benefiting the same vendor, issued between two consecutive tenders after the first failed — they read differently. By shifting the language from "blacklisted earlier" to "currently blacklisted," the drafting committee carved out a precise safe harbor for a firm that had escaped formal debarment only through Telangana's administrative failure. By dropping the CMMI Level 5 requirement, the board signalled its willingness to accept inferior software engineering for a system managing the academic data of millions of minors. By deleting physical data centre ownership requirements, it allowed a cloud systems integrator effectively renting server space to outscore the country's largest IT services exporter on technical infrastructure.</p>
+
+        <div class="warning-box">
+          <p class="warning-label">Legal Implication</p>
+          <p>The eight coordinated changes strongly suggest the presence of tender rigging under the guise of "increasing competition." By systematically removing clauses targeting past performance, and lowering technical thresholds to exactly match the specific profile of Coempt Edu Teck, the procurement process violated core tenets of the Competition Act, 2002, and CVC guidelines mandating fair, non-discriminatory procurement. The one-member S. Radha Chauhan committee must identify the exact signatories who authorized each of these eight dilutions.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4: THE CORRIGENDUM -->
+      <section class="article-section" id="section-corrigendum" aria-labelledby="hed-corrigendum">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2 class="section-hed" id="hed-corrigendum">
+            The Corrigendum That Made Coempt Untouchable
+            <button class="copy-link" onclick="copySection('section-corrigendum')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>Three weeks before the final bid submission deadline, the CBSE issued a corrigendum — and quietly removed the government's most powerful enforcement tool from the contract.</p>
+
+        <p>The original August 28 tender document, under its section on penalties for "Other Mistakes" — covering systemic software failures, massive security breaches, data corruption, or continuous operational delays — explicitly granted the CBSE the authority to both financially penalize and formally blacklist the vendor. The September 20, 2025 corrigendum struck the word "Blacklisting" from the penalty clause entirely.</p>
+
+        <p>The revised clause read simply: <em>"If any of the mistakes from 'Other Mistakes' is repeated by the bidder, then CBSE reserves the right for forfeiture for Security Deposit, and Termination of contract."</em></p>
+
+        <p>This documentary evidence confirms that the CBSE voluntarily stripped itself of its most powerful regulatory weapon against vendor malfeasance weeks before awarding the contract to a company with a documented history of examination disasters. While cascading financial penalties remained intact — including a ₹1 lakh fine for every 15-minute delay in rectifying a helpdesk-flagged issue — the removal of debarment power ensured that Coempt Edu Teck would not face a national ban on future public contracts regardless of how catastrophic the OSM platform's failure proved to be in production.</p>
+
+        <div class="pull-quote">
+          <p>By removing the blacklisting clause pre-emptively, the CBSE created a contractual safe harbor for gross negligence — insulating Coempt from severe administrative consequences before a single answer book had been scanned.</p>
+        </div>
+
+        <p>The legal implications under GFR 2017 are severe. Rule 151 explicitly grants ministries the right to debar vendors for breach of contract or poor performance. By removing this clause from the mutually agreed contract language, the CBSE severely hampered the government's legal standing to enforce a ban during subsequent arbitration or judicial review. This was not an oversight in legal drafting — it was a pre-emptive act of insulation. The question of who approved this corrigendum at the Ministry of Education level, and why no senior official questioned the voluntary surrender of such authority, remains unanswered.</p>
+
+        <div class="finding-card">
+          <p class="finding-card-label">The Consequence, Verified</p>
+          <p>Following the OSM disaster in 2026, CBSE officials confirmed that <strong>blacklisting is unlikely</strong> precisely because the corrigendum removed it as a contractual remedy. The board can penalise; it cannot debar. The September 20 corrigendum ensured this outcome months in advance.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5: SECURITY BREACH -->
+      <section class="article-section" id="section-security" aria-labelledby="hed-security">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2 class="section-hed" id="hed-security">
+            The Open Front Door: How a Teenager Found What the Government Missed
+            <button class="copy-link" onclick="copySection('section-security')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The Onmark platform's security vulnerabilities were not subtle. They were elementary. What made them extraordinary was that a 19-year-old independent researcher found them — and the CBSE's own systems had not.</p>
+
+        <p>Nisarga Adhikary documented, with irrefutable technical evidence, that Coempt's cloud storage infrastructure for the 2026 scanned answer sheets was left entirely open to the public internet. The company had used Amazon Web Services S3 buckets to house the scanned answer scripts and question papers. These buckets were improperly configured with ListObjectsV2 permissions enabled without any authentication requirements — meaning anyone with an internet connection could enumerate, paginate, and download the examination materials of millions of students across multiple institutions.</p>
+
+        <div class="tech-box">
+          <p class="tech-box-label">Documented Technical Vulnerabilities</p>
+          <span class="tech-highlight">1. Open S3 Bucket</span> — ListObjectsV2 permissions enabled without authentication. Root directory listable and downloadable by any internet user without credentials.<br><br>
+          <span class="tech-highlight">2. Hardcoded Master Password</span> — Discoverable in plaintext within publicly hosted, minified JavaScript files (e.g., main.a2bab24a9332a08b.js). When entered into the login form, auto-filled the OTP field, bypassing authentication entirely.<br><br>
+          <span class="tech-highlight">3. Client-Side OTP Theatre</span> — The server transmitted the actual OTP in its response payload; validation occurred entirely on the client side, interceptable via the browser's network tab.<br><br>
+          <span class="tech-highlight">4. Missing Route Guards</span> — Angular route configuration lacked canActivate guards, making internal routes (/dashboard, /evaluatordetails) directly navigable without authentication.<br><br>
+          <span class="tech-highlight">5. IDOR + Password Reset Chain</span> — Systemic Insecure Direct Object Reference vulnerability tied to ValuatorID in sessionStorage, combined with a password-change API that did not verify the old password, enabled forced account takeovers of any examiner in the system.
+        </div>
+
+        <p>The contract between CBSE and Coempt mandated a CERT-In certified Vulnerability Assessment and Penetration Testing report prior to the Go-Live date, requiring documented closure of identified security gaps. The public record does not establish whether Coempt submitted a falsified VAPT report, or whether the CBSE waived the requirement entirely to meet the rushed 74-day deployment deadline. Both scenarios represent a catastrophic failure of institutional oversight. The Ministry of Electronics and Information Technology must answer how a MeitY-empaneled cloud environment was permitted to host an application containing hardcoded master passwords in a live national production environment.</p>
+
+        <div class="warning-box">
+          <p class="warning-label">Legal Implication</p>
+          <p>The exposure of personally identifiable information of minors — combined with the processing of sensitive student data through unverified third-party automation scripts (Adhikary noted the use of Google's Gemini in QA scripts by Coempt engineers) — creates direct, actionable liability under the Digital Personal Data Protection Act, 2023. Both Coempt as Data Processor and CBSE as Data Fiduciary are legally mandated to report these breaches to the Data Protection Board of India.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 6: SCANNING -->
+      <section class="article-section" id="section-scanning" aria-labelledby="hed-scanning">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">06</span>
+          <h2 class="section-hed" id="hed-scanning">
+            Nine Million Answer Books and a Camera Phone
+            <button class="copy-link" onclick="copySection('section-scanning')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The physical digitisation of 9.86 million bound answer scripts is the critical first step of any On-Screen Marking system. If the initial scan is illegible, the entire digital evaluation chain fails.</p>
+
+        <p>The second tender had been clear about this. Scanning must be executed using "automatic book/robotic scanners" capable of digitising pages without cutting the binding spines of the booklets — a standard, non-destructive method for handling large volumes of bound examination material. The revised third tender deleted this precise technical specification entirely. It replaced it with a vague, unquantifiable requirement for the vendor to deploy "sufficient scanners." What counted as sufficient was left undefined.</p>
+
+        <p>The practical consequence manifested immediately. Students who requested copies of their scanned answer scripts reported receiving severely blurred images, missing pages, and skewed text that rendered documents completely illegible. Digital forensic analysis and EXIF metadata observation of returned PDFs indicated that at various regional centres, scanning operators had resorted to using standard flatbed scanners or — in documented cases — mobile phone cameras to photograph the booklets rather than deploying enterprise-grade robotic OCR hardware. An internal memo from the Ranchi CBSE Regional Office, which merely requested duplex 60 ppm and 300 DPI scanners, demonstrates how far the operational reality had drifted from any professional standard.</p>
+
+        <p>The penalty architecture of the new tender explains why this happened. The original tender imposed granular quality penalties: ₹4,000 for wrong scanning, ₹8,000 for partial or merged scanning, ₹15,000 for completely unscanned books, anchored by a strict error rate threshold of 0.5%. The revised tender deleted the mathematical error rate and replaced these quality penalties with bulk, time-based delay penalties of ₹50,000 per working day. The incentive structure had been precisely inverted: speed over accuracy. Vendors facing massive daily fines for lateness had every financial reason to rush, regardless of image quality. The answer sheets photographed on mobile phones were the logical — and foreseeable — result.</p>
+
+        <div class="finding-card">
+          <p class="finding-card-label">Finding</p>
+          <p>The shift from quality-focused penalties (error rates, per-book fines) to time-based bulk delay penalties was a deliberate SLA restructuring that prioritised throughput over integrity. The degraded scan quality that resulted directly impaired evaluators' ability to assess answers and students' ability to verify their marked scripts during re-evaluation.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7: SILENCING -->
+      <section class="article-section" id="section-silencing" aria-labelledby="hed-silencing">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">07</span>
+          <h2 class="section-hed" id="hed-silencing">
+            The Gag Order: How the Board Silenced Its Own Evaluators
+            <button class="copy-link" onclick="copySection('section-silencing')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>As the On-Screen Marking system began failing in live environments, thousands of teachers and evaluators faced constant portal crashes, illegible script scans, and missing pages. When they turned to social media to report these failures and seek technical assistance, the board responded not with technical support, but with a formal circular threatening disciplinary action.</p>
+
+        <p>On March 16, 2026, Dr. Sanyam Bhardwaj, Controller of Examinations, issued Advisory 2 (Ref: CBSE/SPPS/OSM): "Advisory to Teachers Involved in Evaluation — Refrain from Sharing Misleading Information on Social Media."</p>
+
+        <div class="pull-quote">
+          <p>Sharing any misleading information, experiences, or opinions related to evaluation on public platforms is strictly prohibited. Any attempt to spread rumours or misrepresent facts on social media is a violation of professional conduct and may invite disciplinary action.</p>
+          <cite>Dr. Sanyam Bhardwaj, Controller of Examinations, CBSE Advisory 2, March 16, 2026</cite>
+        </div>
+
+        <p>The circular framed every evaluator's first-hand account of a failing portal as a "rumour." Technical grievances about illegible scans and missing pages were classified as "misleading information." The CBSE, faced with a catastrophic vendor failure, deployed an authoritarian gag order against its own workforce rather than addressing the systemic collapse the workforce was experiencing and reporting.</p>
+
+        <p>By threatening legal and disciplinary action against evaluators who exposed the platform's flaws, the CBSE leadership actively suppressed evidence of contractual breaches committed by Coempt Edu Teck — making the board complicit in the vendor's failure to deliver a functional product. The public record does not establish how many teachers were formally subjected to disciplinary action, or whether show-cause notices were issued. Those records lie within the CBSE Human Resources and Disciplinary committees, and the Department of School Education must answer whether the Ministry sanctioned the use of administrative threats to silence public servants reporting software failures of this severity.</p>
+      </section>
+
+      <!-- SECTION 8: MARKS INTEGRITY -->
+      <section class="article-section" id="section-marks" aria-labelledby="hed-marks">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">08</span>
+          <h2 class="section-hed" id="hed-marks">
+            The Marks Integrity Question: Can These Results Be Trusted?
+            <button class="copy-link" onclick="copySection('section-marks')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The IDOR vulnerability documented by Nisarga Adhikary was not simply a privacy breach. It was an attack vector into the marking system itself. The researcher demonstrated that an attacker — using only a browser's developer tools — could modify sessionStorage values, log in as any specific evaluator, navigate internal routes, and theoretically manipulate grades before they were locked by the system. Server-side authentication did not catch this because server-side validation did not meaningfully exist for these pathways.</p>
+
+        <p>This places every mark awarded on the Onmark platform in a legally and mathematically ambiguous position.</p>
+
+        <div class="stat-block" aria-label="Statistical consequences of the OSM failure">
+          <div class="stat-item">
+            <div class="stat-value">85.2%</div>
+            <div class="stat-label">National Class 12 pass percentage — lowest in 7 years</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">2.94L</div>
+            <div class="stat-label">Re-evaluation applications filed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">8.56L</div>
+            <div class="stat-label">Answer books submitted for re-evaluation</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">2×</div>
+            <div class="stat-label">More than double the previous year's re-evaluation volume</div>
+          </div>
+        </div>
+
+        <p>The national pass percentage for the 2026 Class 12 examinations plunged to 85.20%, the lowest recorded in seven years. The CBSE was flooded with 2.94 lakh applications for the re-evaluation of 8.56 lakh answer books — more than twice the previous year's volume. As students rushed to verify their grades, the CBSE's own payment system for re-evaluation collapsed, deducting additional charges in some cases and failing to register others.</p>
+
+        <p>The legal implications are unprecedented in Indian public education. If the cryptographic controls and unalterable audit logs — which should track every keystroke, grade alteration, IP address, and timestamp — are not demonstrably robust, the CBSE cannot legally certify that the final marks awarded to the 17 lakh students were not tampered with. The severity of the crisis prompted a Parliamentary Standing Committee on Education, Women, Children, Youth, and Sports, chaired by Congress MP Digvijaya Singh, to summon student whistleblower Sarthak Sidhant — a 17-year-old — to present his findings directly.</p>
+
+        <p>CERT-In and the S. Radha Chauhan committee must extract Coempt's database logs, audit the change history, and publicly verify the cryptographic integrity of every result. Until that verification is published, these examination results carry a question mark that no student — many of whom are now applying to universities — should have to carry with them.</p>
+      </section>
+
+      <!-- SECTION 9: GHOST VENDOR -->
+      <section class="article-section" id="section-ghost" aria-labelledby="hed-ghost">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">09</span>
+          <h2 class="section-hed" id="hed-ghost">
+            Infrastructure on Rent: The Ghost Vendor Question
+            <button class="copy-link" onclick="copySection('section-ghost')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The question of how Coempt Edu Teck was able to undercut TCS by nearly 60% is answered, in part, by looking at what Coempt actually owns. The answer is: very little.</p>
+
+        <p>The original Request for Proposal was weighted precisely to reward vendors with physical sovereign infrastructure. Twenty marks went to vendors owning Tier 3 Primary and Secondary Data Centres. Only ten marks went to third-party cloud hosting. Vendors were required to own the complete source code of their platforms. These requirements existed for a reason: when a national examination system fails, the government needs immediate control over the infrastructure, the data, and the codebase.</p>
+
+        <p>The revised tender deleted all of these requirements. MeitY-empaneled cloud hosting — AWS, Azure — became fully acceptable. The source code ownership clause disappeared. Coempt, which lists 51 to 200 employees on LinkedIn and reported latest revenues of ₹68 crore, was now evaluated on the same terms as TCS: a company with over 5.8 lakh employees, ₹267,021 crore in revenue, and vast fully-owned sovereign infrastructure spanning multiple countries.</p>
+
+        <p>Coempt won because it spent less. A company that rents its servers, depends on third-party frameworks, and has no physical data centre overhead will always underbid a company that owns and maintains physical infrastructure. But the 60% cost differential does not represent a more efficient solution — it represents the cost of outsourcing risk onto the government and onto the students whose data now sits on rented AWS buckets that were left publicly accessible.</p>
+
+        <p>Coempt's ability to clear the ₹50 crore turnover threshold by a margin of 1.7% — submitting an exact three-year average of ₹50.86 crore — raises the further question of whether these figures were precisely calibrated to the threshold. The Comptroller and Auditor General must audit whether CBSE awarded a ₹38.46 crore national contract to what is, in infrastructural terms, a lightweight systems integrator operating primarily on rented capacity.</p>
+      </section>
+
+      <!-- SECTION 10: THE PATTERN -->
+      <section class="article-section" id="section-pattern" aria-labelledby="hed-pattern">
+        <span class="section-anchor" aria-hidden="true"></span>
+        <div class="section-header">
+          <span class="section-number">10</span>
+          <h2 class="section-hed" id="hed-pattern">
+            A Seven-Year Trail of Academic Destruction
+            <button class="copy-link" onclick="copySection('section-pattern')" title="Copy link to section" aria-label="Copy link to this section">⧉</button>
+          </h2>
+          <hr class="section-rule" aria-hidden="true">
+        </div>
+
+        <p>The CBSE OSM controversy is not an isolated anomaly. It is the culmination of a documented, systemic pattern spanning multiple states and seven years. The institutional trail is verified by public and judicial records.</p>
+
+        <p>An internal CBSE observation report, generated after a dry run at five Delhi schools in January 2026, had flagged exactly 36 critical technical and operational concerns. The report warned explicitly of risks regarding "blind or superficial checking," weakened supervisory oversight, the absence of data loss safeguards, and the inability of evaluators to reach consensus on marks. Despite 36 documented red flags — produced by the CBSE's own observation team — the leadership proceeded with the national rollout.</p>
+
+        <div class="pattern-list" aria-label="Pattern of failures across institutions">
+          <div class="pattern-item">
+            <div class="pattern-num" aria-hidden="true">1</div>
+            <div class="pattern-body">
+              <p class="pattern-location">Telangana, 2019</p>
+              <p class="pattern-desc">Operating as Globarena Technologies, the firm caused the failure of 3.8 lakh intermediate results, triggering 23 student suicides. A state-appointed committee confirmed the absence of a formal contract and documented severe software negligence. No blacklisting proceedings were ever initiated.</p>
+            </div>
+          </div>
+          <div class="pattern-item">
+            <div class="pattern-num" aria-hidden="true">2</div>
+            <div class="pattern-body">
+              <p class="pattern-location">JNTU Hyderabad, 2023</p>
+              <p class="pattern-desc">Coempt was shortlisted for digitising answer scripts in a consortium with Magnetic Infotech, raising similar concerns regarding operational capacity and undisclosed past performance.</p>
+            </div>
+          </div>
+          <div class="pattern-item">
+            <div class="pattern-num" aria-hidden="true">3</div>
+            <div class="pattern-body">
+              <p class="pattern-location">Kannur University, 2025</p>
+              <p class="pattern-desc">The university's tender committee explicitly disqualified Coempt after discovering the firm submitted a fraudulent "clean track record" declaration — actively suppressing the existence of a pending criminal case, CRLP No. 696/2019, in the Andhra Pradesh High Court.</p>
+            </div>
+          </div>
+          <div class="pattern-item">
+            <div class="pattern-num" aria-hidden="true">4</div>
+            <div class="pattern-body">
+              <p class="pattern-location">Nagpur University, 2025–26</p>
+              <p class="pattern-desc">Coempt secured a ₹5 crore contract but immediately faced serious allegations of marksheet errors, examination glitches, and submitting fake documentation, resulting in ongoing university hearings.</p>
+            </div>
+          </div>
+          <div class="pattern-item">
+            <div class="pattern-num" aria-hidden="true">5</div>
+            <div class="pattern-body">
+              <p class="pattern-location">CBSE National Board, 2026</p>
+              <p class="pattern-desc">After repeated tender dilutions, the firm secured the national OSM contract. The deployment produced catastrophic portal failures, exposed AWS S3 buckets, hardcoded master passwords, and marks of questionable integrity for 17 lakh students. Top CBSE officials were transferred. A parliamentary committee was convened.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>This pattern reveals a systemic failure that is institutional, not accidental. It relies on isolated bureaucratic silos — each state and institution conducting its own procurement without reference to a centralised debarment registry — allowing a tainted vendor to rebrand, suppress criminal petitions, and leapfrog from state-level disasters to national-level contracts. India currently operates no national blacklisting registry for education technology vendors that would make a Telangana committee report visible to a CBSE procurement officer in Delhi. Until it does, the conditions that enabled this crisis remain fully intact.</p>
+
+        <div class="finding-card">
+          <p class="finding-card-label">The Outstanding Questions</p>
+          <p>The S. Radha Chauhan committee must answer: <strong>Who authorised the deletion of the first tender from CPPP archives?</strong> Who drafted and signed each of the eight rule changes? Who approved the September 20 corrigendum removing blacklisting? Did the CBSE waive the VAPT requirement to meet the 74-day deployment window? Do Coempt's database logs demonstrate that no marks were tampered with? Was the CBSE leadership aware of the Kannur University disqualification — based on a fraudulent clean-record declaration — when it awarded this contract?</p>
+        </div>
+
+        <p>The Chauhan committee has one month. The 17 lakh students waiting for answers about the integrity of their results have already been waiting too long.</p>
+      </section>
+
+      <!-- REFERENCES -->
+      <div class="references-section" id="references" aria-labelledby="ref-header">
+        <h2 class="references-header" id="ref-header">References and Sources</h2>
+        <ol class="references-list" aria-label="Citations and sources">
+          <li>
+            <span class="ref-num">1</span>
+            <span class="ref-text">Coempt Edu Teck Private Limited — 2026 Company Profile & Financials. <a href="https://tracxn.com/d/legal-entities/india/coempt-edu-teck-private-limited/__Eq7_bTB9kOLOvR5h-UuZ9xt-Z4nZimaQFj7AT2Hyny0" target="_blank" rel="noopener noreferrer">Tracxn</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">2</span>
+            <span class="ref-text">Coempt Edu Teck Private Limited — Director and Company History. <a href="https://www.zaubacorp.com/COEMPT-EDU-TECK-PRIVATE-LIMITED-U72200TG2000PTC034224" target="_blank" rel="noopener noreferrer">ZaubaCorp</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">3</span>
+            <span class="ref-text">Coempt Edu Teck Financials | Company Details. <a href="https://www.tofler.in/coempt-edu-teck-private-limited/company/U72200TG2000PTC034224" target="_blank" rel="noopener noreferrer">Tofler</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">4</span>
+            <span class="ref-text">How CBSE Rewrote Rules to Favor Coempt Eduteck — Primary investigative research and document analysis. <a href="https://sarthaksidhant.com/coempt/" target="_blank" rel="noopener noreferrer">Sarthak Sidhant</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">5</span>
+            <span class="ref-text">Firm linked to Telangana Inter marks fiasco in 2019 now under lens in CBSE row. <a href="https://timesofindia.indiatimes.com/city/hyderabad/firm-linked-to-t-inter-marks-fiasco-in-2019-now-under-lens-in-cbse-row/articleshow/131382009.cms" target="_blank" rel="noopener noreferrer">Times of India</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">6</span>
+            <span class="ref-text">Class 12 student probe reveals CBSE relaxed rules to favour Coempt Eduteck for OSM. <a href="https://www.youtube.com/shorts/H_EEr-yUJBs" target="_blank" rel="noopener noreferrer">YouTube</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">7</span>
+            <span class="ref-text">How CBSE OSM Turned Board Results Into a National Scandal. <a href="https://theprobe.in/education/cbse-osm-result-2026-examination-failure-india-11891206" target="_blank" rel="noopener noreferrer">The Probe</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">8</span>
+            <span class="ref-text">Order an independent security audit of CBSE's OSM portal, activists tell Education Ministry. <a href="https://www.thehindu.com/news/national/order-an-independent-security-audit-of-cbses-osm-portal-activists-tell-education-ministry/article71030023.ece" target="_blank" rel="noopener noreferrer">The Hindu</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">9</span>
+            <span class="ref-text">How India's CBSE exam scandal set off student outrage against PM Modi. <a href="https://www.aljazeera.com/news/2026/6/4/how-indias-cbse-exam-scandal-set-off-student-outrage-against-pm-modi" target="_blank" rel="noopener noreferrer">Al Jazeera</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">11</span>
+            <span class="ref-text">On-Screen Marking system row: Firm roped in by CBSE was under scanner for Telangana exam mess; may be fined. <a href="https://indianexpress.com/article/education/class-12-board-evaluation-cbse-on-screen-marking-system-row-10713102/" target="_blank" rel="noopener noreferrer">Indian Express</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">12</span>
+            <span class="ref-text">Behind CBSE's Class 12 evaluation contract, a trail of unanswered questions. <a href="https://www.thenewsminute.com/news/behind-cbses-class-12-evaluation-contract-a-trail-of-unanswered-questions" target="_blank" rel="noopener noreferrer">The News Minute</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">13</span>
+            <span class="ref-text">Coempt edged out TCS by nearly 60% in race to secure CBSE's OSM portal contract. <a href="https://www.hindustantimes.com/india-news/coempt-undercut-tcs-by-60-in-cbse-osm-tender-101780340790222.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">14</span>
+            <span class="ref-text">CBSE may penalise vendor over OSM flaws, blacklisting unlikely. <a href="https://www.hindustantimes.com/india-news/cbseacknowledges-osm-flaws-may-penalise-vendor-101780274287627.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">15</span>
+            <span class="ref-text">Centre transfers CBSE chairman, secretary, forms panel to probe OSM procurement. <a href="https://www.newindianexpress.com/india/2026/Jun/02/centre-transfers-cbse-chairman-secretary-forms-panel-to-probe-osm-procurement" target="_blank" rel="noopener noreferrer">New Indian Express</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">17</span>
+            <span class="ref-text">CBSE OSM row: Centre replaces chairman, secretary; orders probe into exam evaluation system. <a href="https://www.hindustantimes.com/india-news/cbse-osm-row-centre-replaces-chairman-secretary-orders-probe-into-exam-evaluation-system-101780447771152.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">18</span>
+            <span class="ref-text">CBSE OSM Contract: How Coempt Beat TCS By Nearly 60% To Get Tender. <a href="https://www.youtube.com/watch?v=Cn7xN_VGles" target="_blank" rel="noopener noreferrer">YouTube</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">19</span>
+            <span class="ref-text">CBSE marking row: Rahul Gandhi says 'rules' bent to favour Coempt, cites TCS loss in auction. <a href="https://www.telegraphindia.com/india/cbse-on-screen-marking-row-rahul-gandhi-says-rules-bent-to-favour-coempt-cites-tcs-loss-in-auction/cid/2163080" target="_blank" rel="noopener noreferrer">Telegraph India</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">20</span>
+            <span class="ref-text">Behind CBSE's Class 12 evaluation contract, a trail of unanswered questions. <a href="https://www.newslaundry.com/2026/05/30/behind-cbses-class-12-evaluation-contract-a-trail-of-unanswered-questions" target="_blank" rel="noopener noreferrer">Newslaundry</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">21</span>
+            <span class="ref-text">CBSE's own 'corrigendum' means it can't blacklist company linked to OSM mess. <a href="https://www.hindustantimes.com/india-news/how-a-corrigendum-may-save-company-linked-to-cbse-osm-mess-from-blacklisting-101780327747103.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">22</span>
+            <span class="ref-text">CBSE says OnMark portal 'vulnerabilities' contained amid security concerns. <a href="https://www.thehindu.com/news/national/cbse-says-onmark-portal-vulnerabilities-contained-amid-security-concerns/article71044420.ece" target="_blank" rel="noopener noreferrer">The Hindu</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">23</span>
+            <span class="ref-text">Gen Z vs CBSE: Nisarga alleges 2026 answer sheets were exposed online. <a href="https://www.indiatoday.in/education-today/news/story/gen-z-vs-cbse-nisarga-adhikary-claims-scanned-class-12-answer-sheets-are-publicly-downloadable-2919816-2026-05-31" target="_blank" rel="noopener noreferrer">India Today</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">24</span>
+            <span class="ref-text">'Anyone can download': Teen hacker alleges CBSE answer sheets were exposed online. <a href="https://timesofindia.indiatimes.com/education/news/anyone-can-download-teen-hacker-alleges-cbse-answer-sheets-were-exposed-online/articleshow/131420123.cms" target="_blank" rel="noopener noreferrer">Times of India</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">28</span>
+            <span class="ref-text">Advisory to Teachers Involved in Evaluation – Refrain from Sharing Misleading Information on Social Media. <a href="https://www.cbse.gov.in/cbsenew/documents/Advisory_2_16032026.pdf" target="_blank" rel="noopener noreferrer">CBSE Official Document</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">29</span>
+            <span class="ref-text">CBSE warns of 'legal' and 'disciplinary action' over misleading posts on exams. <a href="https://www.hindustantimes.com/india-news/cbse-warns-of-legal-and-disciplinary-action-over-misleading-posts-on-exams-101773673656162.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">30</span>
+            <span class="ref-text">17-year-old Sarthak Sidhant, who probed CBSE's OSM system, appears before Parliament panel. <a href="https://www.hindustantimes.com/india-news/17yearold-sarthak-sidhant-who-probed-cbses-osm-system-to-appear-before-parliament-panel-101780390114501.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">31</span>
+            <span class="ref-text">Company hired by CBSE for OSM was disqualified by Kannur University over clean record declaration. <a href="https://timesofindia.indiatimes.com/city/mumbai/company-hired-by-cbse-for-osm-was-disqualified-by-kannur-university-over-clean-record-declaration/amp_articleshow/131469221.cms" target="_blank" rel="noopener noreferrer">Times of India</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">32</span>
+            <span class="ref-text">Company Embroiled In CBSE Marking Row Faces Fake Documentation Charge at Nagpur University. <a href="https://m.thewire.in/article/education/company-embroiled-in-cbse-marking-row-faces-fake-documentation-charge-at-nagpur-university" target="_blank" rel="noopener noreferrer">The Wire</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">33</span>
+            <span class="ref-text">Student claims CBSE tender tweaks helped Coempt Eduteck clinch OSM contract. <a href="https://www.business-standard.com/education/news/student-claims-cbse-tender-tweaks-helped-coempt-eduteck-clinch-osm-contract-126053000645_1.html" target="_blank" rel="noopener noreferrer">Business Standard</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">34</span>
+            <span class="ref-text">Report flagged 36 concerns including 'blind checking' before CBSE's OSM roll out. <a href="https://inshorts.com/en/news/report-flagged-36-concerns-including--blind-checking--before-cbse-s-osm-roll-out-1780119914197" target="_blank" rel="noopener noreferrer">Inshorts</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">35</span>
+            <span class="ref-text">CBSE OSM row: Centre shunts out top officials as S. Radha Chauhan takes charge of procurement probe. <a href="https://timesofindia.indiatimes.com/education/news/cbse-osm-row-centre-shunts-out-top-officials-as-s-radha-chauhan-takes-charge-of-procurement-probe/articleshow/131465241.cms" target="_blank" rel="noopener noreferrer">Times of India</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">36</span>
+            <span class="ref-text">Who is S Radha Chauhan, who is leading probe into CBSE's OSM case? <a href="https://inshorts.com/en/news/who-is-s-radha-chauhan--who-is-leading-probe-into-cbse-s-osm-case--1780476468088" target="_blank" rel="noopener noreferrer">Inshorts</a>, accessed June 4, 2026.</span>
+          </li>
+          <li>
+            <span class="ref-num">37</span>
+            <span class="ref-text">Who is S Radha Chauhan, retired IAS officer heading one-member panel on CBSE's OSM probe? <a href="https://www.hindustantimes.com/india-news/who-is-s-radha-chauhan-retired-ias-officer-heading-one-member-panel-on-cbse-osm-probe-101780465938600.html" target="_blank" rel="noopener noreferrer">Hindustan Times</a>, accessed June 4, 2026.</span>
+          </li>
+        </ol>
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <p>This investigative analysis is based entirely on documents in the public record: Ministry of Corporate Affairs filings, government procurement portals, official committee reports, parliamentary records, and reporting by Indian news organisations.</p>
+  <p>Published June 5, 2026 · CBSE On-Screen Marking Investigation</p>
+</footer>
+
+<button id="back-to-top" aria-label="Return to top of page" title="Back to top">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite">Link copied to clipboard</div>
+
+<script>
+  // ===== DARK MODE =====
+  const darkToggle = document.getElementById('dark-toggle');
+  const html = document.documentElement;
+  
+  function setTheme(dark) {
+    html.setAttribute('data-theme', dark ? 'dark' : 'light');
+    darkToggle.innerHTML = dark
+      ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/></svg> Light Mode'
+      : '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg> Dark Mode';
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e) {}
+  }
+
+  darkToggle.addEventListener('click', () => {
+    setTheme(html.getAttribute('data-theme') !== 'dark');
+  });
+
+  try {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') setTheme(true);
+    else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme(true);
+  } catch(e) {}
+
+  // ===== PROGRESS BAR =====
+  const progressBar = document.getElementById('progress-bar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+    progressBar.setAttribute('aria-valuenow', Math.round(pct));
+  }
+
+  // ===== BACK TO TOP =====
+  const backTop = document.getElementById('back-to-top');
+  function handleScroll() {
+    updateProgress();
+    backTop.classList.toggle('visible', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ===== INTERSECTION OBSERVER — SECTION ANIMATIONS =====
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.article-section, .summary-box').forEach(el => animObserver.observe(el));
+
+  // ===== ACTIVE TOC =====
+  const sections = Array.from(document.querySelectorAll('.article-section[id], #section-summary'));
+  const tocLinks = Array.from(document.querySelectorAll('.toc-nav a'));
+  
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(s => tocObserver.observe(s));
+
+  // ===== COPY SECTION LINKS =====
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  
+  function copySection(id) {
+    const url = window.location.origin + window.location.pathname + '#' + id;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(showToast);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.cssText = 'position:fixed;opacity:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast();
+    }
+  }
+
+  function showToast() {
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+
+  // ===== SMOOTH SCROLL FOR TOC =====
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
